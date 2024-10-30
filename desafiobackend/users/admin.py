@@ -1,10 +1,15 @@
 from django.contrib import admin
+
 from users.models import Professional
+from users.models import User
 
 
-# Register your models here.
-@admin.register(Professional)
-class ProfessionalAdmin(admin.ModelAdmin):
-    list_display = ("user__name", "user__social_name", "user__email", "occupation")
-    list_filter = ("occupation",)
-    search_fields = ("user__name", "user__social_name", "user__email")
+class ProfessionalInline(admin.StackedInline):
+    model = Professional
+    extra = 0
+
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    inlines = (ProfessionalInline,)
+    list_display = ("name",)

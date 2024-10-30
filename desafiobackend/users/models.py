@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from django.contrib.auth.models import AbstractUser
 from django.db.models import CASCADE
 from django.db.models import CharField
@@ -6,6 +8,8 @@ from django.db.models import Model
 from django.db.models import OneToOneField
 from django.utils.translation import gettext_lazy as _
 
+from users.managers import UserManager
+
 
 class User(AbstractUser):
     # First and last name do not cover name patterns around the globe
@@ -13,13 +17,15 @@ class User(AbstractUser):
     social_name = CharField(_("Social Name of User"), blank=True, max_length=255)
     address = CharField(_("Address"), max_length=255)
     phone = CharField(_("Phone"), max_length=255)
-    first_name = None
-    last_name = None
+    first_name = None  # type: ignore[assignment]
+    last_name = None  # type: ignore[assignment]
     email = EmailField(_("email address"), unique=True)
-    username = None
+    username = None  # type: ignore[assignment]
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
+
+    objects: ClassVar[UserManager] = UserManager()
 
 
 class Professional(Model):

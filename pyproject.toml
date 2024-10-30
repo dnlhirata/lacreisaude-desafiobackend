@@ -13,6 +13,7 @@ djangorestframework-stubs = "^3.15.1"
 django-stubs-ext = "^5.1.1"
 django-types = "^0.19.1"
 django-extensions = "^3.2.3"
+drf-spectacular = "^0.27.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -39,7 +40,7 @@ indent-width = 4
 target-version = "py312"
 
 [tool.ruff.lint]
-ignore = ["ISC001", "D203", "D213"]
+ignore = ["ANN003", "ANN101", "ISC001", "D203", "D213"]
 select = [
     "ANN", # flake8-annotations
     "ARG", # flake8-arguments
@@ -60,7 +61,6 @@ select = [
     "PT",  # flake8-pytest-style
     "PTH", # flake8-use-pathlib
     "RET", # flake8-return
-    "RUF", # ruff-specific rules
     "Q",   # flake8-quotes
     "SIM", # flake8-simplify
     "T10", # flake8-print

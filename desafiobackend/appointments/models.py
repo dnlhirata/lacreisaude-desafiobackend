@@ -8,22 +8,6 @@ from django_extensions.db.models import TimeStampedModel
 
 
 class Appointment(TimeStampedModel):
-    """Appointment model representing a scheduled appointment with a professional.
-
-    Attributes:
-        professional (ForeignKey): A foreign key to the Professional model.
-        date (DateTimeField): The date and time of the appointment.
-
-    Meta:
-        verbose_name (str): The human-readable name of the model.
-        verbose_name_plural (str): The human-readable plural name of the model.
-        constraints (list): A list of constraints for the model, ensuring that each professional can only have one appointment at a specific date and time.
-
-    Methods:
-        __str__(): Returns a string representation of the appointment, including the date and the professional.
-
-    """
-
     professional = ForeignKey("users.Professional", on_delete=CASCADE, related_name="appointments")
     date = DateTimeField()
 

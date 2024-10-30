@@ -16,10 +16,10 @@ class User(AbstractUser):
     name = CharField(_("Name of User"), max_length=255)
     social_name = CharField(_("Social Name of User"), blank=True, max_length=255)
     address = CharField(_("Address"), max_length=255)
-    first_name = None  # type: ignore[assignment]
-    last_name = None  # type: ignore[assignment]
+    first_name = None
+    last_name = None
     email = EmailField(_("email address"), unique=True)
-    username = None  # type: ignore[assignment]
+    username = None
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

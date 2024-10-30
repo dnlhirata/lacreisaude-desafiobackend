@@ -16,6 +16,7 @@ class ProfessionalSerializer(ModelSerializer):
     class Meta:
         model = Professional
         fields = (
+            "id",
             "user_id",
             "name",
             "social_name",

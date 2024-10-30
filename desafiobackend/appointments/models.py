@@ -24,7 +24,7 @@ class Appointment(TimeStampedModel):
 
     """
 
-    professional = ForeignKey("users.Professional", on_delete=CASCADE)
+    professional = ForeignKey("users.Professional", on_delete=CASCADE, related_name="appointments")
     date = DateTimeField()
 
     class Meta:
